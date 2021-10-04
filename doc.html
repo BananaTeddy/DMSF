@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Documentation</title>
+        <!-- TODO: write better and complete docs -->
+        <style media="screen">
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #bbb;
+            }
+            [class*="col-"] {
+                float: left;
+                width: 100%;
+                padding: 20px;
+            }
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            h2 {
+                font-size: 1.875rem;
+                margin-bottom: 1.5rem;
+            }
+            p {
+                font-size: 1rem;
+                margin-bottom: 1.25rem;
+            }
+            @media screen and (min-width: 768px) {
+                .col-m-1  { width:   8.33%; }
+                .col-m-2  { width:  16.66%; }
+                .col-m-3  { width:  25.00%; }
+                .col-m-4  { width:  33.33%; }
+                .col-m-5  { width:  41.66%; }
+                .col-m-6  { width:  50.00%; }
+                .col-m-7  { width:  58.33%; }
+                .col-m-8  { width:  66.66%; }
+                .col-m-9  { width:  75.00%; }
+                .col-m-10 { width:  83.33%; }
+                .col-m-11 { width:  91.66%; }
+                .col-m-12 { width: 100.00%; }
+            }
+            @media screen and (min-width: 1200px) {
+                .col-1  { width:   8.33%; }
+                .col-2  { width:  16.66%; }
+                .col-3  { width:  25.00%; }
+                .col-4  { width:  33.33%; }
+                .col-5  { width:  41.66%; }
+                .col-6  { width:  50.00%; }
+                .col-7  { width:  58.33%; }
+                .col-8  { width:  66.66%; }
+                .col-9  { width:  75.00%; }
+                .col-10 { width:  83.33%; }
+                .col-11 { width:  91.66%; }
+                .col-12 { width: 100.00%; }
+            }
+            code pre {
+                font-family: monospace;
+                background-color: hsla(0, 0%, 90%, 1);
+                border: 1px solid hsla(0, 0%, 75%, 1);
+                margin-bottom: .5rem;
+                padding: .25rem;
+            }
+            .doc-body {
+                background-color: #efefef;
+            }
+            .function-explanation {
+                background-color: #e2e2e2;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            .span-code {
+                background-color: hsla(0, 0%, 90%, 1);
+                border: 1px solid hsla(0, 0%, 75%, 1);
+                margin: 0px 3px;
+                padding: 0 2px;
+            }
+            .function-body {
+                color: mediumblue;
+            }
+            .parameter-type {
+                color: purple;
+            }
+            .parameters {
+                color: forestgreen;
+            }
+            .wrong {
+                color: crimson;
+            }
+            .highlight-code {
+                color: steelblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-2">
+                <h1>Documentation</h1>
+            </div>
+            <div class="col-6 doc-body">
+                <h1>QueryBuilder</h1>
+
+                <div>
+                    <p>QueryBuilder is a fluent interface for creating SQL queries. That means you can just keep calling functions until you either call <span class="span-code">get()</span>, <span class="span-code">update()</span>, <span class="span-code">insert()</span> or <span class="span-code">delete()</span>.</p>
+                </div>
+
+                <div class="function-explanation">
+                    <h2>Creating an instance of QueryBuilder</h2>
+                    <p>
+                        You can not create an instance of QueryBuilder with a normal instantiation. The following will <b>NOT</b> work.
+                    </p>
+                    <code><pre>
+<span class="wrong">$qb = new QueryBuilder();</span></pre></code>
+                    <p>
+                        Instead you will have to call the static function <span class="span-code">table()</span> where the table name is passed as a parameter. The <span class="span-code">table()</span>-function returns an instance of <span class="span-code">QueryBuilder</span> with a connection to the default database, specified in your database configuration.
+                    </p>
+                    <code><pre>
+$qb = QueryBuilder::<span class="highlight-code">table('accounts')</span>;</pre></code>
+                    <p>
+                        This will bind your <span class="span-code">QueryBuilder</span> instance to the <span class="span-code">accounts</span> table and every operation will be executed on that table.
+                    </p>
+                    <p>
+                        You can optionally pass an array with the keys <span class="span-code">host</span>, <span class="span-code">user</span>, <span class="span-code">password</span> and <span class="span-code">databasename</span> to make a connection to an other database.
+                    </p>
+                    <code><pre>
+<span class="function-body">static function table(<span class="parameters"><span class="parameter-type">string</span> $name, <span class="parameter-type">array</span> $info = null</span>): QueryBuilder</span>
+
+$qb = QueryBuilder::<span class="highlight-code">table(
+    'accounts', [
+        'host' => '127.0.0.1',
+        'user' => 'thegreatbaker',
+        'password' => 'plsgiefcheesecake',
+        'databasename' => 'cakeFactory'
+    ])</span>;</pre></code>
+                </div>
+
+                <div class="function-explanation">
+                    <h2>Retrieving data</h2>
+                    <p>
+                        The most simple way to retrieve data from a table is to just call <span class="span-code">get()</span> on your <span class="span-code">QueryBuilder</span> instance. That way you'll get an array of associative arrays with the column names as keys.
+                    </p>
+                    <code><pre>
+<span class="function-body">function get(): ?array</span>
+
+$cakes = QueryBuilder::table('cakeSortiment')-><span class="highlight-code">get()</span>;</pre></code>
+                    <p>
+                        Which will result in an array like this:
+                    </p>
+                    <code><pre>
+Array (
+    [0] => Array (
+        ['id'] => 1,
+        ['name'] => 'Cheesecake',
+        ['description'] => 'The most delicious cheesecake',
+        ['stock'] => 69,
+        ['price'] => 13.37,
+        ...
+    ),
+    ...
+)
+                    </pre></code>
+                    <p>
+                        <b>Note:</b> If your query returns an empty result the return value of <span class="span-code">get()</span> will be <span class="span-code"><span class="parameter-type">null</span</span>.
+                    </p>
+                    <p>
+                        You can however select which columns of the table you want to select with your query by using the <span class="span-code">select()</span>-function. You can pass either a string or an array to the select function. If you choose to pass an array you can use an associatve array to retrieve columns with aliases.
+                    </p>
+                    <code><pre>
+<span class="function-body">function select(<span class="parameters"><span class="parameter-type">array|string</span> $selection = '*'</span>): QueryBuilder</span>
+
+// selects just id from cakeSortiment
+$cakes = QueryBuilder::table('cakeSortiment')
+    -><span class="highlight-code">select('id')</span>
+    ->get();
+
+// selects description as descr
+$cakes = QueryBuilder::table('cakeSortiment')
+    -><span class="highlight-code">select('description AS descr')</span>
+    ->get();
+
+// selects name, price and stock as supply
+$cakes = QueryBuilder::table('cakeSortiment')
+    -><span class="highlight-code">select([
+        'name',
+        'stock' => 'supply',
+        'price'
+        ])</span>
+    ->get();</pre></code>
+                <p>
+                    You can further modify your <span class="span-code">get()</span> with the <span class="span-code">first()</span>-, <span class="span-code">last()</span>-, <span class="span-code">limit()</span>- and <span class="span-code">distinct()</span>-functions.
+                </p>
+                <p>
+                    The first two of these functions are used to either get the first or last element of the result regardless of the number of rows returned.
+                </p>
+                <code><pre>
+<span class="function-body">function first(): QueryBuilder</span>
+
+// selects just id from cakeSortiment and returns the very first one
+$cakes = QueryBuilder::table('cakeSortiment')
+->select('id')
+-><span class="highlight-code">first()</span>
+->get();
+
+<span class="function-body">function last(): QueryBuilder</span>
+
+// selects just id from cakeSortiment and returns the very last one
+$cakes = QueryBuilder::table('cakeSortiment')
+->select('id')
+-><span class="highlight-code">last()</span>
+->get();
+        </pre></code>
+                <p>
+                    The <span class="span-code">limit()</span>-function is used to limit the results returned by the query. You can also specify an offset.
+                </p>
+                <code><pre>
+<span class="function-body">function limit(<span class="parameters"><span class="parameter-type">int</span> $limitation, <span class="parameter-type">int</span> $offset = 0</span>): QueryBuilder</span>
+
+// get the first 42 cakes from cakeSortiment
+$cakes = QueryBuilder::table('cakeSortiment')
+-><span class="highlight-code">limit(42)</span>
+->get();
+
+            </pre></code>
+                <p>
+                    <span class="span-code">distinct()</span> will make your query only return distinct value.
+                </p>
+                <code><pre>
+<span class="function-body">function distinct(<span class="parameters"><span class="parameter-type">bool</span> $makeDistinction = true</span>): QueryBuilder</span>
+
+// get the first 42 cakes from cakeSortiment
+$cakes = QueryBuilder::table('cakeSortiment')
+->select('name')
+-><span class="highlight-code">distinct()</span>
+->get();
+</pre></code>
+                </div>
+                <div class="function-explanation">
+                    <h2>Filtering Queries</h2>
+                    <p>
+                        You can gain more control over queries with filters - which are effectively where clauses - with the <span class="span-code">QueryFilter</span> and the <span class="span-code">addFilter()</span>-function. For more information on filters take a look at the <span class="span-code">QueryFilter</span> documentation.
+                    </p>
+                    <code><pre>
+<span class="function-body">function addFilter(<span class="parameters"><span class="parameter-type">array</span> $filters</span>): QueryBuilder</span>
+
+$cheesecakes = QueryBuilder::table('cakeSortiment')
+    ->select([
+        'name',
+        'stock',
+        'price'
+    ])
+    -><span class="highlight-code">addFilter([
+        QueryFilter::Filter(QueryFilter::Like, 'name', 'cheesecake'),
+        QueryFilter::AndFilter(QueryFilter::LessEqual, 'price', 15.00)
+    ])</span>
+    ->get();
+</pre></code>
+                </div>
+                <div class="function-explanation">
+                    <h2>Joining Tables</h2>
+                    <p>
+                        The <span class="span-code">QueryBuilder</span> is bound to the table you specified in the <span class="span-code">table()</span>-function, but you can use the <span class="span-code">join()</span>-function to include other tables.
+                    </p>
+                    <code><pre>
+<span class="function-body">function join(<span class="parameters"><span class="parameter-type">string</span> $tableName, <span class="parameter-type">string</span> $prop1, <span class="parameter-type">string</span> $prop2, <span class="parameter-type">string</span> $joinType = 'INNER'</span>): QueryBuilder</span>
+
+$cheesecakes = QueryBuilder::table('cakeSortiment')
+    ->select([
+        'cakeSortiment.name',
+        'stock',
+        'price',
+        'cakeCategories.name'
+    ])
+    -><span class="highlight-code">join(
+        'cakeCategories',
+        'cakeSortiment.categoryId',
+        'cakeCategories.Id',
+        'left'
+    )</span>
+    ->addFilter([
+        QueryFilter::Filter(QueryFilter::Like, 'name', 'cheesecake'),
+        QueryFilter::AndFilter(QueryFilter::LessEqual, 'price', 15.00)
+    ])
+    ->get();
+</pre></code>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+/****************************** RADIO ******************************/
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #999;
+    border-radius: 32px;
+    background-color: #bbb;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+}
+
+input[type="radio"]:hover {
+    background-color: #888;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    background-clip: content-box;
+    padding: 3px;
+}

@@ -1,0 +1,74 @@
+#container--notifications {
+    position: fixed;
+    top: 1.25rem;
+    right: 1rem;
+}
+.notification {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 18rem;
+    height: 4rem;
+    margin-bottom: 0.25rem;
+    background-color: white;
+    color: #2655ab;
+    box-shadow: 1px 1px 3px #2d2d2d;
+    animation-name: notification--slide;
+    animation-duration: 0.4s;
+}
+.notification--body {
+    width: 16rem;
+    height: 4rem;
+    float: left;
+    padding: 0.5rem;
+}
+.notification--body:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+.notification--body img {
+    float: left;
+    width: 3rem;
+    height: 3rem;
+}
+.notification--body p {
+    margin-left: 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+.notification--body img + h5 {
+    margin-left: 4rem;
+}
+.notification--body img + h5 + p {
+    margin-left: 4rem;
+}
+.notification--close {
+    float: right;
+    width: 2rem;
+    height: 4rem;
+    padding: 1.125rem 0.625rem;
+    font-size: 1.25rem;
+}
+.notification--close:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+.notification--close::after {
+    content: "×";
+}
+.notification--timer {
+    height: 2px;
+    width: 100%;
+    background: crimson;
+    position: absolute;
+    bottom: -2px;
+    transition: all 0.1s;
+}
+@keyframes notification--slide {
+    from {
+        left: 24rem;
+    }
+    to {
+        left: 0;
+    }
+}

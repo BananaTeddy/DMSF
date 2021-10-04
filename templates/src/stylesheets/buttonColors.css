@@ -1,0 +1,129 @@
+/****************************** BLUE ******************************/
+
+.btn--blue-filled {
+    border: 1px solid hsl(225, 75%, 50%);
+    background-color: hsl(225, 75%, 50%);
+    color: #fff;
+}
+
+.btn--blue-filled:hover {
+    border: 1px solid hsl(225, 75%, 40%);
+    background-color: hsl(225, 75%, 40%);
+    color: #fff;
+}
+
+.btn--blue-outlined {
+    border: 1px solid hsl(225, 75%, 50%);
+    background-color: transparent;
+    color: hsl(225, 75%, 50%);
+}
+
+.btn--blue-outlined:hover {
+    border: 1px solid hsl(225, 75%, 50%);
+    background-color: hsl(225, 75%, 50%);
+    color: #fff;
+}
+
+/****************************** GREEN ******************************/
+
+.btn--green-filled {
+    border: 1px solid hsl(140, 65%, 40%);
+    background-color: hsl(140, 65%, 40%);
+    color: #fff;
+}
+
+.btn--green-filled:hover {
+    border: 1px solid hsl(140, 65%, 30%);
+    background-color: hsl(140, 65%, 30%);
+    color: #fff;
+}
+
+.btn--green-outlined {
+    border: 1px solid hsl(140, 65%, 40%);
+    background-color: transparent;
+    color: hsl(140, 65%, 40%);
+}
+
+.btn--green-outlined:hover {
+    border: 1px solid hsl(140, 65%, 40%);
+    background-color: hsl(140, 65%, 40%);
+    color: #fff;
+}
+
+/****************************** RED ******************************/
+
+.btn--red-filled {
+    border: 1px solid hsl(0, 60%, 50%);
+    background-color: hsl(0, 60%, 50%);
+    color: #fff;
+}
+
+.btn--red-filled:hover {
+    border: 1px solid hsl(0, 60%, 40%);
+    background-color: hsl(0, 60%, 40%);
+    color: #fff;
+}
+
+.btn--red-outlined {
+    border: 1px solid hsl(0, 60%, 50%);
+    background-color: transparent;
+    color: hsl(0, 60%, 50%);
+}
+
+.btn--red-outlined:hover {
+    border: 1px solid hsl(0, 60%, 50%);
+    background-color: hsl(0, 60%, 50%);
+    color: #fff;
+}
+
+/****************************** YELLOW ******************************/
+
+.btn--yellow-filled {
+    border: 1px solid hsl(50, 85%, 50%);
+    background-color: hsl(50, 85%, 50%);
+    color: #fff;
+}
+
+.btn--yellow-filled:hover {
+    border: 1px solid hsl(50, 85%, 40%);
+    background-color: hsl(50, 85%, 40%);
+    color: #fff;
+}
+
+.btn--yellow-outlined {
+    border: 1px solid hsl(50, 85%, 50%);
+    background-color: transparent;
+    color: hsl(50, 85%, 50%);
+}
+
+.btn--yellow-outlined:hover {
+    border: 1px solid hsl(50, 85%, 50%);
+    background-color: hsl(50, 85%, 50%);
+    color: #fff;
+}
+
+/****************************** BLACK ******************************/
+
+.btn--black-filled {
+    border: 1px solid hsl(0, 2.5%, 10%);
+    background-color: hsl(0, 2.5%, 10%);
+    color: #fff;
+}
+
+.btn--black-filled:hover {
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+}
+
+.btn--black-outlined {
+    border: 1px solid #000;
+    background-color: transparent;
+    color: #000;
+}
+
+.btn--black-outlined:hover {
+    border: 1px solid hsl(0, 2.5%, 10%);
+    background-color: hsl(0, 2.5%, 10%);
+    color: #fff;
+}

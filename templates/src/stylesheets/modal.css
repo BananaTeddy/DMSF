@@ -1,0 +1,42 @@
+.modal--background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000cc;
+}
+
+.modal--window {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    max-width: 80%;
+    height: max-content;
+    max-height: 80%;
+    padding: 1rem;
+    overflow-y: auto;
+    background: #222222;
+    border: 2px ridge whitesmoke;
+    transition: all 0.1s;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.modal--success {
+    background: limegreen;
+    height: initial;
+    width: fit-content;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+}
+
+.modal--fail {
+    background: firebrick;
+    height: initial;
+    width: fit-content;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+}

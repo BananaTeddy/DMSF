@@ -1,0 +1,49 @@
+/****************************** BLUE ******************************/
+
+.radio--blue:checked {
+    background-color: hsl(225, 75%, 50%);
+}
+
+.radio--blue:checked:hover {
+    background-color: hsl(225, 75%, 40%);
+}
+
+/****************************** GREEN ******************************/
+
+.radio--green:checked {
+    background-color: hsl(140, 65%, 40%);
+}
+
+.radio--green:checked:hover {
+    background-color: hsl(140, 65%, 30%);
+}
+
+/****************************** RED ******************************/
+
+.radio--red:checked {
+    background-color: hsl(0, 65%, 50%);
+}
+
+.radio--red:checked:hover {
+    background-color: hsl(0, 65%, 40%);
+}
+
+/****************************** YELLOW ******************************/
+
+.radio--yellow:checked {
+    background-color: hsl(50, 85%, 50%);
+}
+
+.radio--yellow:checked:hover {
+    background-color: hsl(40, 85%, 40%);
+}
+
+/****************************** BLACK ******************************/
+
+.radio--black:checked {
+    background-color: hsl(0, 2.5%, 10%);
+}
+
+.radio--black:checked:hover {
+    background-color: #000;
+}

@@ -1,0 +1,28 @@
+/****************************** CHECKBOX ******************************/
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #999;
+    background-color: #bbb;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]:hover {
+    background-color: #888;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-clip: content-box;
+    padding: 2px;
+}
+
+input[type="checkbox"][class*="check--slide"] {
+    width: 48px;
+    background-clip: content-box;
+    padding: 0;
+}

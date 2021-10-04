@@ -1,0 +1,22 @@
+.is--round {
+    border-radius: 32px !important;
+}
+
+.is--full-width {
+    width: 100% !important;
+}
+
+.is--left {
+    float: left !important;
+}
+
+.is--right {
+    float: right !important;
+}
+
+@media screen and (min-width: 768px) {
+    .is--sticky-top {
+        position: sticky !important;
+        top: 0 !important;
+    }
+}

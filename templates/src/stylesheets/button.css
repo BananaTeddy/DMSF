@@ -1,0 +1,36 @@
+/****************************** BUTTON ******************************/
+
+.btn {
+    height: 36px;
+    width: 100%;
+    padding: 4px;
+    text-align: center;
+    transition: 0.33s;
+    margin-bottom: 4px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn--height-small {
+    height: 24px;
+}
+
+.btn--height-big {
+    height: 48px;
+}
+
+/****************************** QUERIES ******************************/
+
+@media screen and (min-width: 768px) {
+    .btn {
+        width: 50%;
+    }
+    .btn--small {
+        width: 25%;
+    }
+    .btn--big {
+        width: 75%;
+    }
+}

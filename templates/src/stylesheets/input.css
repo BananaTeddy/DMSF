@@ -1,0 +1,11 @@
+input {
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.inp--big {
+    height: 2.25rem;
+    width: 100%;
+    padding: 0.25rem;
+    margin-bottom: 0.25rem;;
+}

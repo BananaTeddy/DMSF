@@ -1,0 +1,89 @@
+/****************************** BLUE ******************************/
+
+.check--blue:checked {
+    background-color: hsl(225, 75%, 50%);
+}
+
+.check--blue:checked:hover {
+    background-color: hsl(225, 75%, 40%);
+}
+
+input[type="checkbox"].check--slide-blue {
+    background-image: linear-gradient(to right, hsl(225, 75%, 35%) 50%, #bbb 50%);
+}
+
+input[type="checkbox"].check--slide-blue:checked {
+    background-image: linear-gradient(to right, #aaa 50%, hsl(225, 75%, 50%) 50%);
+}
+
+/****************************** GREEN ******************************/
+
+.check--green:checked {
+    background-color: hsl(140, 65%, 40%);
+}
+
+.check--green:checked:hover {
+    background-color: hsl(140, 65%, 30%);
+}
+
+input[type="checkbox"].check--slide-green {
+    background-image: linear-gradient(to right, hsl(140, 65%, 25%) 50%, #bbb 50%);
+}
+
+input[type="checkbox"].check--slide-green:checked {
+    background-image: linear-gradient(to right, #aaa 50%, hsl(140, 65%, 40%) 50%);
+}
+
+/****************************** RED ******************************/
+
+.check--red:checked {
+    background-color: hsl(0, 65%, 50%);
+}
+
+.check--red:checked:hover {
+    background-color: hsl(0, 65%, 40%);
+}
+
+input[type="checkbox"].check--slide-red {
+    background-image: linear-gradient(to right, hsl(0, 65%, 35%) 50%, #bbb 50%);
+}
+
+input[type="checkbox"].check--slide-red:checked {
+    background-image: linear-gradient(to right, #aaa 50%, hsl(0, 65%, 50%) 50%);
+}
+
+/****************************** YELLOW ******************************/
+
+.check--yellow:checked {
+    background-color: hsl(50, 85%, 50%);
+}
+
+.check--yellow:checked:hover {
+    background-color: hsl(40, 85%, 40%);
+}
+
+input[type="checkbox"].check--slide-yellow {
+    background-image: linear-gradient(to right, hsl(40, 85%, 40%) 50%, #bbb 50%);
+}
+
+input[type="checkbox"].check--slide-yellow:checked {
+    background-image: linear-gradient(to right, #aaa 50%, hsl(50, 85%, 50%) 50%);
+}
+
+/****************************** BLACK ******************************/
+
+.check--black:checked {
+    background-color: hsl(0, 2.5%, 10%);
+}
+
+.check--black:checked:hover {
+    background-color: #000;
+}
+
+input[type="checkbox"].check--slide-black {
+    background-image: linear-gradient(to right, #000 50%, #bbb 50%);
+}
+
+input[type="checkbox"].check--slide-black:checked {
+    background-image: linear-gradient(to right, #aaa 50%, #000 50%);
+}
